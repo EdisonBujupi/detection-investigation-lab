@@ -287,3 +287,15 @@ The next phase must determine how this telemetry is ingested by Wazuh and how us
 
 The next dependency is Wazuh ingestion and normalization of the resulting audit events.
 
+Phase 1 validation
+
+- auditd was active on the Ubuntu endpoint.
+- A targeted execve audit rule was loaded.
+- Controlled execution of /usr/bin/id generated audit evidence.
+- The event contained identity, executable, PID, timestamp and audit key.
+- The Wazuh agent successfully transmitted the event.
+- The Wazuh manager received and archived the event.
+- Wazuh-generated activity was also observed, demonstrating that broad
+  process-execution collection introduces operational noise.
+
+Result: endpoint process-execution telemetry is operational end-to-end.
